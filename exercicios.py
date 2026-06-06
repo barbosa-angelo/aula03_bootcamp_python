@@ -150,15 +150,64 @@ print(total_categorias)
 ### Exercício 11. Leitura de Dados até Flag
 # Ler dados de entrada até que uma palavra-chave específica ("sair") seja fornecida.
 
+dados = []
+entrada = ""
+
+while entrada.lower() != "sair":
+    entrada = input("Digite uma palavra ou 'sair' para encerrar o programa: ")
+
+    if entrada.lower() != "sair":
+        dados.append(entrada)
+
 ### Exercício 12. Validação de Entrada
 # Solicitar ao usuário um número dentro de um intervalo específico até que a entrada seja válida.
+
+numero = int(input("Digite um número entre 1 e 10: "))
+
+while not (1 <= numero <= 10):
+    print("Número fora do intervalo!")
+    numero = int(input("Digite um número entre 1 e 10: "))
+
+print("Número válido!")
 
 ### Exercício 13. Consumo de API Simulado
 # Simular o consumo de uma API paginada, onde cada "página" de dados é processada em loop até que não haja mais páginas.
 
+pagina_atual = 1
+paginas_totais = 5
+
+while pagina_atual <= paginas_totais:
+    print(f"Procenssando página {pagina_atual} e {paginas_totais} páginas.")
+    pagina_atual += 1
+
+print("Todas as páginas foram processadas.")
+
 ### Exercício 14. Tentativas de Conexão
 # Simular tentativas de reconexão a um serviço com um limite máximo de tentativas.
+
+tentativas_maximas = 5
+tentativa = 1
+servidor_conectado = True
+
+while tentativa <= tentativas_maximas:
+    print(f"Tentativa {tentativa} de {tentativas_maximas} tentativas.")
+    if servidor_conectado:
+        print("Conexão realizada com sucesso!")
+        break
+    tentativa += 1
+else:
+    print("Falha ao tentar conectar.")
 
 ### Exercício 15. Processamento de Dados com Condição de Parada
 # Processar itens de uma lista até encontrar um valor específico que indica a parada.
 
+itens = [1, 2, 3, "parar", 4, 5]
+
+i = 0
+while i < len(itens):
+    if itens[i] == "parar":
+        print("Parada encontrada, encerrando processamento.")
+        break
+
+    print(f"Processando item: {itens[i]}")
+    i += 1
