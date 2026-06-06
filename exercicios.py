@@ -72,17 +72,78 @@ else:
 ### Exercício 6. Contagem de Palavras em Textos
 # Objetivo:** Dado um texto, contar quantas vezes cada palavra única aparece nele.
 
+texto = "hoje é nossa segunda aula do bootcamp, bootcamp de python"
+novo_texto = texto.replace(",", "")
+
+palavras = novo_texto.split()
+
+contagem_de_palavras = {}
+
+for palavra in palavras:
+    if palavra in contagem_de_palavras:
+        contagem_de_palavras[palavra] += 1
+    else:
+        contagem_de_palavras[palavra] = 1
+
+print(contagem_de_palavras)
+
 ### Exercício 7. Normalização de Dados
 # Objetivo:** Normalizar uma lista de números para que fiquem na escala de 0 a 1.
+
+numeros = [10, 20, 30, 40, 50]
+minimo = min(numeros)
+maximo = max(numeros)
+normalizados = [(x - minimo) / (maximo - minimo) for x in numeros] # de forma direta, atribuindo o resultado da interação a lista.
+
+# de forma gradual
+# for x in numeros:
+#     resultado = (x - minimo) / (maximo - minimo)
+#     normalizados.append(resultado)
+
+print(normalizados)
 
 ### Exercício 8. Filtragem de Dados Faltantes
 # Objetivo:** Dada uma lista de dicionários representando dados de usuários, filtrar aqueles que têm um campo específico faltando
 
+usuarios = [
+    {"nome": "Alice", "email": "alice@example.com"},
+    {"nome": "Bob", "email": ""},
+    {"nome": "Carol", "email": "carol@example.com"}
+]
+
+usuarios_validos = [usuario for usuario in usuarios if usuario["email"]]
+
+print(usuarios_validos)
+
 ### Exercício 9. Extração de Subconjuntos de Dados
 # Objetivo:** Dada uma lista de números, extrair apenas aqueles que são pares.
 
+numeros = range(1, 11)
+
+pares = [numero for numero in numeros if numero % 2 == 0]
+
+print(pares)
+
 ### Exercício 10. Agregação de Dados por Categoria
 # Objetivo:** Dado um conjunto de registros de vendas, calcular o total de vendas por categoria.
+
+vendas = [
+    {"categoria": "eletrônicos", "valor": 1200},
+    {"categoria": "livros", "valor": 200},
+    {"categoria": "eletrônicos", "valor": 800}
+]
+
+total_categorias = {}
+
+for venda in vendas:
+    categoria = venda["categoria"]
+    valor = venda["valor"] 
+    if categoria in total_categorias:
+        total_categorias[categoria] += valor
+    else:
+        total_categorias[categoria] = valor
+
+print(total_categorias)
 
 ### Exercícios com WHILE
 
